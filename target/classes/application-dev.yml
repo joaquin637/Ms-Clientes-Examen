@@ -1,0 +1,31 @@
+server:
+  port: 8083
+  error:
+    include-message: always
+
+spring:
+  application:
+    name: ms-clientes
+
+  datasource:
+    url: jdbc:mariadb://localhost:3306/db_cliente?createDatabaseIfNotExist=true
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: root
+    password:
+
+  jpa:
+    database-platform: org.hibernate.dialect.MariaDBDialect
+    hibernate:
+      ddl-auto: update
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /doc/swagger-ui.html
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
